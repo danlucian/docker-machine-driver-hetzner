@@ -1,22 +1,24 @@
 # Hetzner Cloud Docker machine driver
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/JonasProgrammer/docker-machine-driver-hetzner)](https://goreportcard.com/report/github.com/JonasProgrammer/docker-machine-driver-hetzner)
+[![Go Report Card](https://goreportcard.com/badge/github.com/danlucian/docker-machine-driver-hetzner)](https://goreportcard.com/badge/github.com/danlucian/docker-machine-driver-hetzner)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://secure.travis-ci.org/JonasProgrammer/docker-machine-driver-hetzner.png)](http://travis-ci.org/JonasProgrammer/docker-machine-driver-hetzner)
+[![Build Status](https://api.travis-ci.com/danlucian/docker-machine-driver-hetzner.png)](http://travis-ci.com/danlucian/docker-machine-driver-hetzner)
 
 > This library adds the support for creating [Docker machines](https://github.com/docker/machine) hosted on the [Hetzner Cloud](https://www.hetzner.de/cloud).
 
 You need to create a project-specific access token under `Access` > `API Tokens` in the project control panel
 and pass that to `docker-machine create` with the `--hetzner-api-token` option.
 
+> This library was forked from: https://github.com/JonasProgrammer/docker-machine-driver-hetzner and updated/modified for a [Rancher](https://github.com/JonasProgrammer/docker-machine-driver-hetzner) instance.
+
 ## Installation
 
-You can find sources and pre-compiled binaries [here](https://github.com/JonasProgrammer/docker-machine-driver-hetzner/releases).
+You can find sources and pre-compiled linux-amd64 binary [here](https://github.com/danlucian/docker-machine-driver-hetzner/releases).
 
 ```bash
 # Download the binary (this example downloads the binary for linux amd64)
-$ wget https://github.com/JonasProgrammer/docker-machine-driver-hetzner/releases/download/2.1.0/docker-machine-driver-hetzner_2.1.0_linux_amd64.tar.gz
-$ tar -xvf docker-machine-driver-hetzner_2.1.0_linux_amd64.tar.gz
+$ wget https://github.com/danlucian/docker-machine-driver-hetzner/releases/download/rancher-0.0.1/docker-machine-driver-hetzner_rancher-0.0.1_linux_amd64.tar.gz
+$ tar -xvf docker-machine-driver-hetzner_rancher-0.0.1_linux_amd64.tar.gz
 
 # Make it executable and copy the binary in a directory accessible with your $PATH
 $ chmod +x docker-machine-driver-hetzner
@@ -146,13 +148,13 @@ To use the driver, you can download the sources and build it locally:
 $ export GO111MODULE=on
 
 # Get sources and build the binary at ~/go/bin/docker-machine-driver-hetzner
-$ go get github.com/jonasprogrammer/docker-machine-driver-hetzner
+$ go get github.com/danlucian/docker-machine-driver-hetzner
 
 # Make the binary accessible to docker-machine
 $ export GOPATH=$(go env GOPATH)
 $ export GOBIN=$GOPATH/bin
 $ export PATH="$PATH:$GOBIN"
-$ cd $GOPATH/src/jonasprogrammer/docker-machine-driver-hetzner
+$ cd $GOPATH/src/danlucian/docker-machine-driver-hetzner
 $ go build -o docker-machine-driver-hetzner
 $ cp docker-machine-driver-hetzner /usr/local/bin/docker-machine-driver-hetzner
 ```
